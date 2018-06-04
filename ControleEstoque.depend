@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1528154328 source:c:\devc\controleestoque\main.c
+1528155335 source:c:\devc\controleestoque\main.c
 	<stdio.h>
 	<stdlib.h>
 	<locale.h>

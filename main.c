@@ -16,7 +16,20 @@ int Logica(Opcao){
     {
         case 1:
             system("cls");
-            //logica
+            for(i=0;i<TAM;i++)
+            {
+                printf("Digite o código do produto \n");
+                scanf("%i",&Codigo[i]);
+                printf("");
+                printf("Digite a quantidade em estoque \n");
+                scanf("%i",&Estoque[i]);
+                printf("");
+                printf("Digite a quantidade vendida \n");
+                scanf("%i",&Vendido[i]);
+                printf("------------------------------\n");
+            }
+
+
             break;
 
         case 2:
