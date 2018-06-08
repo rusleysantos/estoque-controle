@@ -1,11 +1,11 @@
 /*
-*Algoritimo desenvolvido para o curso de Bacharel em Sistemas de InformaÁ„o(UVV) por Rusley S. Santos
+*Algoritimo desenvolvido para o curso de Bacharel em Sistemas de Informa√ß√£o(UVV) por Rusley S. Santos
 */
 #include <stdio.h>
 #include <stdlib.h>
 #include <locale.h>
 #include <stdbool.h>
-#define TAM 2
+#define TAM 101
 
 int Codigo[TAM], Estoque[TAM], Vendido[TAM],i,j,Opcao, tes=1, Aux=0,AuxMenu, flagCad=0,flagBusca=0, AuxBusca, Count,x,y,AuxInt;
 float PrecoCusto[TAM], PrecoVenda[TAM], TotalDinheiroCompra,TotalDinheiroVenda,Lucro,AuxFloat;
@@ -17,7 +17,7 @@ int main()
     setlocale(LC_ALL, "Portuguese");
     PrincipalMenu();
 }
-//Verifica se o ID e igual a algum j· cadastrado
+//Verifica se o ID e igual a algum j√° cadastrado
 bool Valor(int Codigo1)
 {
    bool flag = false;
@@ -27,7 +27,7 @@ bool Valor(int Codigo1)
         if(Codigo[j] == Codigo1)
         {
             flag = true;
-            printf("O cÛdigo %i j· foi utilizado, digite outro! \n", Codigo[j]);
+            printf("O c√≥digo %i j√° foi utilizado, digite outro! \n", Codigo[j]);
         }
     }
     return flag;
@@ -42,7 +42,7 @@ int Logica(int Opcao){
             for(i=0;i<TAM;i++)
             {
                 do{
-                    printf("Digite o cÛdigo do produto: \n");
+                    printf("Digite o c√≥digo do produto: \n");
                      scanf("%i",&Aux);
                     }
                     while(Valor(Aux));
@@ -61,18 +61,18 @@ int Logica(int Opcao){
                 printf("Digite a quantidade vendida: \n");
                 scanf("%i",&Vendido[i]);
 
-                printf("Digite o preÁo de venda: \n");
+                printf("Digite o pre√ßo de venda: \n");
                 scanf("%f",&PrecoVenda[i]);
                 fflush(stdin);
 
-                printf("Digite o preÁo de custo: \n");
+                printf("Digite o pre√ßo de custo: \n");
                 scanf("%f",&PrecoCusto[i]);
                 fflush(stdin);
                 printf("------------------------------\n");
             }
             flagCad = 1;
             printf("Todos os produtos foram cadastrados com sucesso!\n");
-            printf("Deseja voltar ao menu principal?(1 = sim / 2 = n„o) \n");
+            printf("Deseja voltar ao menu principal?(1 = sim / 2 = n√£o) \n");
             scanf("%i",&AuxMenu);
             VoltarMenu(AuxMenu);
             break;
@@ -91,22 +91,22 @@ int Logica(int Opcao){
                     printf("Digite a quantidade em estoque: \n");
                     scanf("%i",&Estoque[i]);
 
-                    printf("Digite o preÁo de venda: \n");
+                    printf("Digite o pre√ßo de venda: \n");
                     scanf("%f",&PrecoVenda[i]);
                     fflush(stdin);
 
                     flagBusca = 1;
 
                     printf("Produto alterado com sucesso!!!.\n\n");
-                    printf("Deseja voltar ao menu principal?(1 = sim / 2 = n„o) \n");
+                    printf("Deseja voltar ao menu principal?(1 = sim / 2 = n√£o) \n");
                     scanf("%i",&AuxMenu);
                     VoltarMenu(AuxMenu);
                 }
             }
               if(flagBusca==0)
                 {
-                    printf("N„o foi encontrato nenhum produto com esse ID.\n\n");
-                    printf("Deseja voltar ao menu principal?(1 = sim / 2 = n„o) \n");
+                    printf("N√£o foi encontrato nenhum produto com esse ID.\n\n");
+                    printf("Deseja voltar ao menu principal?(1 = sim / 2 = n√£o) \n");
                     scanf("%i",&AuxMenu);
                     VoltarMenu(AuxMenu);
                 }
@@ -133,15 +133,15 @@ int Logica(int Opcao){
                     flagBusca = 1;
                     printf("\n");
                     printf("Produto excluido com sucesso.\n\n");
-                    printf("Deseja voltar ao menu principal?(1 = sim / 2 = n„o) \n");
+                    printf("Deseja voltar ao menu principal?(1 = sim / 2 = n√£o) \n");
                     scanf("%i",&AuxMenu);
                     VoltarMenu(AuxMenu);
                 }
             }
               if(flagBusca==0)
                 {
-                    printf("N„o foi encontrato nenhum produto com esse ID.\n\n");
-                    printf("Deseja voltar ao menu principal?(1 = sim / 2 = n„o) \n");
+                    printf("N√£o foi encontrato nenhum produto com esse ID.\n\n");
+                    printf("Deseja voltar ao menu principal?(1 = sim / 2 = n√£o) \n");
                     scanf("%i",&AuxMenu);
                     VoltarMenu(AuxMenu);
                 }
@@ -184,14 +184,14 @@ int Logica(int Opcao){
 
             if(flagCad != 0)
             {
-                //Exibir todos j· ordenados
+                //Exibir todos j√° ordenados
                 for(i=0;i<TAM;i++)
                 {
                     printf("ID: %i\n",Codigo[i]);
                     printf("Nome: %s\n",&Nome[i]);
                     printf("Estoque: %i\n",Estoque[i]);
                     printf("Vendido: %i\n",Vendido[i]);
-                    printf("PreÁo de custo: %.2f\n",PrecoCusto[i]);
+                    printf("Pre√ßo de custo: %.2f\n",PrecoCusto[i]);
                     printf("Preco de Venda: %.2f\n",PrecoVenda[i]);
 
                     TotalDinheiroCompra=Vendido[i]*PrecoCusto[i];
@@ -202,14 +202,14 @@ int Logica(int Opcao){
                     }
 
                 printf("");
-                printf("Deseja voltar ao menu principal?(1 = sim / 2 = n„o) \n");
+                printf("Deseja voltar ao menu principal?(1 = sim / 2 = n√£o) \n");
                 scanf("%i",&AuxMenu);
                 VoltarMenu(AuxMenu);
             }
             else
             {
-                printf("VocÍ precisa cadastrar produtos!!!\n\n");
-                printf("Deseja voltar ao menu principal?(1 = sim / 2 = n„o) \n");
+                printf("Voc√™ precisa cadastrar produtos!!!\n\n");
+                printf("Deseja voltar ao menu principal?(1 = sim / 2 = n√£o) \n");
                 scanf("%i",&AuxMenu);
                 VoltarMenu(AuxMenu);
             }
@@ -217,7 +217,7 @@ int Logica(int Opcao){
         case 5:
             //Consultar por ID
             system("cls");
-            printf("Digite o cÛdigo do produto\n");
+            printf("Digite o c√≥digo do produto\n");
             scanf("%i",&AuxBusca);
             for(i=0;i<TAM;i++)
             {
@@ -229,7 +229,7 @@ int Logica(int Opcao){
                     //printf("Nome: %s\n",Nome[i]);
                     printf("Estoque: %i\n",Estoque[i]);
                     printf("Vendido: %i\n",Vendido[i]);
-                    printf("PreÁo de custo: %.2f\n",PrecoCusto[i]);
+                    printf("Pre√ßo de custo: %.2f\n",PrecoCusto[i]);
                     printf("Preco de Venda: %.2f\n",PrecoVenda[i]);
 
                     TotalDinheiroCompra=Vendido[i]*PrecoCusto[i];
@@ -239,15 +239,15 @@ int Logica(int Opcao){
                     printf("------------------------------\n");
                     flagBusca = 1;
 
-                    printf("Deseja voltar ao menu principal?(1 = sim / 2 = n„o) \n");
+                    printf("Deseja voltar ao menu principal?(1 = sim / 2 = n√£o) \n");
                     scanf("%i",&AuxMenu);
                     VoltarMenu(AuxMenu);
                 }
             }
             if(flagBusca==0)
             {
-                printf("N„o foi encontrato nenhum produto com esse ID.\n\n");
-                printf("Deseja voltar ao menu principal?(1 = sim / 2 = n„o) \n");
+                printf("N√£o foi encontrato nenhum produto com esse ID.\n\n");
+                printf("Deseja voltar ao menu principal?(1 = sim / 2 = n√£o) \n");
                 scanf("%i",&AuxMenu);
                 VoltarMenu(AuxMenu);
             }
@@ -261,14 +261,14 @@ int Logica(int Opcao){
         }
     }
 
-//FunÁ„o respons·vel por iniciar o menu.
+//Fun√ß√£o respons√°vel por iniciar o menu.
   int PrincipalMenu(){
 
     printf("---------------->CAD PRODUTO<---------------- \n");
     printf("1 - Cadastrar produtos \n");
     printf("2 - Alterar produto \n");
     printf("3 - Excluir produto \n");
-    printf("---------------->RELAT”RIOS<-----------------\n");
+    printf("---------------->RELAT√ìRIOS<-----------------\n");
     printf("4 - Consultar todos os produtos\n");
     printf("5 - Consultar por ID\n\n");
     printf("6 - Sair \n");
