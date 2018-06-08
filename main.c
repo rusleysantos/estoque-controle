@@ -1,13 +1,16 @@
+/*
+*Algoritimo desenvolvido para o curso de Bacharel em Sistemas de Informação(UVV) por Rusley S. Santos
+*/
 #include <stdio.h>
 #include <stdlib.h>
 #include <locale.h>
 #include <stdbool.h>
-#define TAM 3
+#define TAM 5
 
 int Codigo[TAM], Estoque[TAM], Vendido[TAM],i,j,Opcao, tes=1, Aux=0,AuxMenu, flagCad=0,flagBusca=0, AuxBusca, Count,x,y,AuxInt;
 float PrecoCusto[TAM], PrecoVenda[TAM], TotalDinheiroCompra,TotalDinheiroVenda,Lucro,AuxFloat;
 //char Nome[TAM][100];
-char *Nome[TAM],*AuxName[TAM];
+char *Nome[TAM],*AuxName[100];
 
 int main()
 {
@@ -146,24 +149,41 @@ int Logica(int Opcao){
             //Ordena os valores
             system("cls");
             for(x=0;x<TAM;x++)
-                {
-                  for(y=0;y<TAM;y++)
+            {
+              for(y=0;y<TAM-1;y++)
+              {
+                  if(Codigo[y]>Codigo[y+1])
                   {
-                      if(Codigo[y]>Codigo[y+1])
-                      {
-                          AuxInt = Codigo[y];
-                          Codigo[y] = Codigo[y+1];
-                          Codigo[y+1] = AuxInt;
+                      AuxInt = Codigo[y];
+                      Codigo[y] = Codigo[y+1];
+                      Codigo[y+1] = AuxInt;
 
-                      }
-                    }
-                 }
+                      AuxName[100]=Nome[y];
+                      Nome[y] = Nome[y+1];
+                      Nome[y+1] = AuxName;
+
+                      AuxInt = Estoque[y];
+                      Estoque[y] = Estoque[y+1];
+                      Estoque[y+1] = AuxInt;
+
+                      AuxInt = Vendido[y];
+                      Vendido[y] = Vendido[y+1];
+                      Vendido[y+1] = AuxInt;
+
+                      AuxFloat = PrecoVenda[y];
+                      PrecoVenda[y] = PrecoVenda[y+1];
+                      PrecoVenda[y+1] = AuxFloat;
+
+                      AuxFloat = PrecoCusto[y];
+                      PrecoCusto[y] = PrecoCusto[y+1];
+                      PrecoCusto[y+1] = AuxFloat;
+                  }
+                }
+             }
 
             if(flagCad != 0)
             {
-
-
-                //Exibir todos
+                //Exibir todos já ordenados
                 for(i=0;i<TAM;i++)
                 {
                     printf("ID: %i\n",Codigo[i]);
@@ -180,7 +200,7 @@ int Logica(int Opcao){
 
                     printf("------------------------------\n");
                     }
-                }
+
                 printf("");
                 printf("Deseja voltar ao menu principal?(1 = sim / 2 = não) \n");
                 scanf("%i",&AuxMenu);
