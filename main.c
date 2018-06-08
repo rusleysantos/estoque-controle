@@ -4,10 +4,10 @@
 #include <stdbool.h>
 #define TAM 3
 
-int Codigo[TAM], Estoque[TAM], Vendido[TAM],i,j,Opcao, tes=1, Aux=0,AuxMenu, flagCad=0,flagBusca=0, AuxBusca, Count;
-float PrecoCusto[TAM], PrecoVenda[TAM], TotalDinheiroCompra,TotalDinheiroVenda,Lucro;
+int Codigo[TAM], Estoque[TAM], Vendido[TAM],i,j,Opcao, tes=1, Aux=0,AuxMenu, flagCad=0,flagBusca=0, AuxBusca, Count,x,y,AuxInt;
+float PrecoCusto[TAM], PrecoVenda[TAM], TotalDinheiroCompra,TotalDinheiroVenda,Lucro,AuxFloat;
 //char Nome[TAM][100];
-char *Nome[TAM];
+char *Nome[TAM],*AuxName[TAM];
 
 int main()
 {
@@ -143,25 +143,43 @@ int Logica(int Opcao){
                 }
 
         case 4:
-            //Exibir todos
+            //Ordena os valores
             system("cls");
+            for(x=0;x<TAM;x++)
+                {
+                  for(y=0;y<TAM;y++)
+                  {
+                      if(Codigo[y]>Codigo[y+1])
+                      {
+                          AuxInt = Codigo[y];
+                          Codigo[y] = Codigo[y+1];
+                          Codigo[y+1] = AuxInt;
+
+                      }
+                    }
+                 }
+
             if(flagCad != 0)
             {
+
+
+                //Exibir todos
                 for(i=0;i<TAM;i++)
                 {
-                printf("ID: %i\n",Codigo[i]);
-                printf("Nome: %s\n",&Nome[i]);
-                printf("Estoque: %i\n",Estoque[i]);
-                printf("Vendido: %i\n",Vendido[i]);
-                printf("Preço de custo: %.2f\n",PrecoCusto[i]);
-                printf("Preco de Venda: %.2f\n",PrecoVenda[i]);
+                    printf("ID: %i\n",Codigo[i]);
+                    printf("Nome: %s\n",&Nome[i]);
+                    printf("Estoque: %i\n",Estoque[i]);
+                    printf("Vendido: %i\n",Vendido[i]);
+                    printf("Preço de custo: %.2f\n",PrecoCusto[i]);
+                    printf("Preco de Venda: %.2f\n",PrecoVenda[i]);
 
-                TotalDinheiroCompra=Vendido[i]*PrecoCusto[i];
-                TotalDinheiroVenda=Vendido[i]*PrecoVenda[i];
-                Lucro = TotalDinheiroVenda-TotalDinheiroCompra;
-                printf("Lucro: %.2f\n",Lucro);
+                    TotalDinheiroCompra=Vendido[i]*PrecoCusto[i];
+                    TotalDinheiroVenda=Vendido[i]*PrecoVenda[i];
+                    Lucro = TotalDinheiroVenda-TotalDinheiroCompra;
+                    printf("Lucro: %.2f\n",Lucro);
 
-                printf("------------------------------\n");
+                    printf("------------------------------\n");
+                    }
                 }
                 printf("");
                 printf("Deseja voltar ao menu principal?(1 = sim / 2 = não) \n");
