@@ -52,7 +52,7 @@ int Logica(int Opcao){
                 printf("Digite o nome do produto: \n");
                 //scanf("%[^\n]s", Nome[i]);
                 scanf("%[^\n]s",&Nome[i]);
-                printf("\n%s\n",&Nome[i]);
+                //printf("\n%s\n",&Nome[i]);
                 fflush(stdin);
 
                 printf("Digite a quantidade em estoque: \n");
